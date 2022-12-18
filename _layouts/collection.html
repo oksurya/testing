@@ -1,0 +1,43 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{{ page.title }} Movies Download - {{ site.title }}</title>
+<meta property="description" content="{{ page.title }} Movies Collection Full Movie Download {{ post.title }} Movies Collection HD 1080P Full Movie Download {{ page.title }} Movies Collection Tamilrockers Moviesda Download isaimini">
+<meta property="og:title" content="{{ page.title }} Movies Download - {{ site.name }}" />
+<meta property="og:description" content="{{ page.title }} Movies Collection Full Movie Download {{ post.title }} Movies Collection HD 1080P Full Movie Download {{ page.title }} Movies Collection Tamilrockers Moviesda Download isaimini">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta name="theme-color" content="#141414">
+<meta name="distribution" content="Global" />
+<meta name="rating" content="General" />
+<meta name="robots" content="index, follow" />
+{% include custom-css.html %}
+
+</head>
+<body>
+{% include header.html %}
+
+
+
+
+                    <div class="box cen">
+                        <section class="bots ib">
+                            <h2 class="left pad10">{{ page.title }} Movies Collection </h2>
+                        <!-- post list -->
+                        <div class="botlist">
+                          {%- for post in page.posts -%}
+                          
+                          {%- include item.html -%}
+                      
+                          {%- endfor -%}
+                
+                        </div>
+                    
+                    
+                        </section>
+                        {% include sidebar.html %}
+                        
+                        
+                        </div>
+                    
+                        
+{% include footer.html %}

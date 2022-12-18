@@ -1,0 +1,167 @@
+backend:
+  name: git-gateway
+# when using the default proxy server port
+local_backend: true
+media_folder: assets/uploads/
+collections:
+  - label: "Movie"
+    name: "posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "movie/{{title}}.html"
+    extension: "md"
+    fields:
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD HH:mm:ss"
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "movie"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Description"
+        name: "description"
+        hint: "This will be used across the pages and for search engines."
+        widget: "string"
+        required: false
+      - label: "Movie Poster"
+        name: "poster"
+        widget: "image"
+        allow_multiple: false
+        required: false
+      - label: "genre"
+        name: "genre"
+        widget: "relation"
+        collection: "genre"
+        searchFields: ["title"]
+        valueField: "slug"
+        displayFields: ["title"]
+        multiple: true
+        required: false
+      - label: "Year"
+        name: "year"
+        widget: "relation"
+        collection: "year"
+        searchFields: ["title"]
+        valueField: "slug"
+        displayFields: ["title"]
+        required: true
+      - label: "language"
+        name: "language"
+        widget: "relation"
+        collection: "language"
+        searchFields: ["title"]
+        valueField: "slug"
+        displayFields: ["title"]
+        required: true
+      - label: "Cast"
+        name: "cast"
+        widget: "list"
+        required: false
+      - label: "Director"
+        name: "director"
+        widget: "list"
+        required: false
+      - label: "Download Links"
+        name: "dlink"
+        widget: "list"
+        required: false
+        fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                hint: "Text that will show up in the menu"
+                required: false
+              - label: "URL"
+                name: "url"
+                widget: "string"
+                required: false 
+              - label: "Watch URL"
+                name: "watch"
+                widget: "string"
+                required: false
+              - label: "Torrent URL"
+                name: "torrent"
+                widget: "string"
+                required: false
+              - label: "Quality"
+                name: "quality"
+                widget: "select"
+                options: ["Low Quality", "HD", "720p", "1080p", "DVDscr"]
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["250 MB", "500 MB", "700 MB", "900 MB", "1 GB", "2 GB"]
+              - label: "Language"
+                name: "language"
+                widget: "select"
+                multiple: true
+                options: ["Tamil", "Telugu", "Tamil Dubbed", "Malayalam", "Kannada", "Hindi", "English"]
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
+  - label: "Genre"
+    name: "genre"
+    folder: "_genre"
+    create: true
+    editor:
+      preview: false
+    slug: "{{slug}}"
+    preview_path: "browse-by-genre/{{slug}}"
+    extension: "md"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "genre"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+  - label: "Year"
+    name: "year"
+    folder: "_year"
+    create: true
+    editor:
+      preview: false
+    slug: "{{slug}}"
+    preview_path: "browse-by-year/{{slug}}"
+    extension: "md"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "year"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+  - label: "Language"
+    name: "language"
+    folder: "_language"
+    create: true
+    editor:
+      preview: false
+    slug: "{{slug}}"
+    preview_path: "browse-by-language/{{slug}}"
+    extension: "md"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "language"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Slug"
+        name: "slug"
+        widget: "string"

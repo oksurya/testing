@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /cast/
+Allow: /director/
+Allow: /genre/
+
+Sitemap: https://moviesda.hair/sitemap.xml

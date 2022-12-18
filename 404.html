@@ -1,25 +1,22 @@
 ---
-permalink: /404.html
-layout: default
+layout: 404
+title: 404
 ---
+<div class="header">
+    <h4 class="cen" style="display: block; font-size: 3.5em">404</h4>
+    </div><div class="box cen">
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <section class="wid ctr left">
+            <h4 class="wtitle cen">Recent Updates</h4>
+            <ul itemscope itemtype="https://schema.org/SiteNavigationElement">
+                
+                
+                
+                
+        {% for post in site.posts%}  
+          <li itemprop="name"><a itemprop="url" href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }} ({{ post.year }})</a></li>  
+        {% endfor %}  
 
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+            </ul>
+          </section></div>
+{% include footer.html %}

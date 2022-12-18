@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ page.title }} Movies Download - {{ site.title }}</title>
+<meta property="description" content="{{ page.title }} Movies Collection Full Movie Download {{ post.title }} Movies Collection HD 1080P Full Movie Download {{ page.title }} Movies Collection Tamilrockers Moviesda Download isaimini">
+<meta property="og:title" content="{{ page.title }} Movies Download - {{ site.name }}" />
+<meta property="og:description" content="{{ page.title }} Movies Collection Full Movie Download {{ post.title }} Movies Collection HD 1080P Full Movie Download {{ page.title }} Movies Collection Tamilrockers Moviesda Download isaimini">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:url" content="{{ url }}" />
+<meta name="theme-color" content="#141414">
+<meta name="distribution" content="Global" />
+<meta name="rating" content="General" />
+<meta name="robots" content="index, follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% include custom-css.html %}
+
+</head><body>
+{% include header.html %}
+
+
+
+
+                    <div class="box cen">
+                        <section class="bots ib">
+                            <h2 class="left pad10">{{page.title}}</h2>
+                        <!-- post list -->
+                        <div class="botlist">
+                            {% assign posts = site.posts | where_exp:"post","post.is_generated != true" %}
+	    
+   {% for post in posts %}
+
+{% if post.language == page.slug %}
+
+{% include item.html %}
+
+ {% endif %} 
+                    {% endfor %}
+                    
+                    <!-- pagination -->
+                    {% if paginator.total_pages > 1 %}
+                    <div class="pagination">
+                      {% if paginator.previous_page %}
+                        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+                      {% else %}
+                        <span class="page prev">&laquo; Prev</span>
+                      {% endif %}
+                    
+                      {% for page in (1..paginator.total_pages) %}
+                        {% if page == paginator.page %}
+                          <span class="page active">{{ page }}</span>
+                        {% elsif page == 1 %}
+                          <a class="page" href="/">{{ page }}</a>
+                        {% else %}
+                          <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+                        {% endif %}
+                      {% endfor %}
+                    
+                      {% if paginator.next_page %}
+                        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+                      {% else %}
+                        <span class="page next">Next &raquo;</span>
+                      {% endif %}
+                    </div>
+                    {% endif %}
+                        </div>
+                    
+                    
+                        </section>
+                        {% include sidebar.html %}
+                        
+                        
+                        </div>
+                    
+                        
+{% include footer.html %}
